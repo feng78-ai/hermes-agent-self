@@ -68,7 +68,8 @@ def diagnose(agent_root: Optional[str] = None) -> SelfHealthReport:
     if agent_root:
         root = Path(agent_root)
     else:
-        root = Path(__file__).parent.resolve()
+        # 默认是仓库根目录（agent/的父目录）
+        root = Path(__file__).parent.parent.resolve()
 
     report.agent_root = str(root)
 
